@@ -1,28 +1,31 @@
-# 🌲 Cypress, do Zero à Nuvem ☁️
+# CAC-TAT
+Projeto desenvolvido durante o curso de Cypress do Zero à Nuvem. O objetivo principal é praticar os conceitos aprendidos no curso, incluindo testes de interface, testes de API, testes mobile, integração contínua, etc.
 
-👋 Seja bem-vindo(a)!
+## Para rodar precisa ter:
+- [Node.js](https://nodejs.org) instalado na máquina (utilizei a versão 20.17.0)
+- [Gerenciador de pacotes npm](https://www.npmjs.com) (utilizei a versão 10.8.2)
+- [Cypress](https://cypress.io) instalado (utilizei a versão 13.12.0)
+- [Editor de código](https://code.visualstudio.com) (utilizei o Visual Studio Code)
 
-É muito bom tê-lo(a) aqui. Tenho certeza que você vai amar esse curso. ❤️
+## Instalação e inicialização
+1. Clone o repositório do projeto:
+    git clone
+    cd cypress-do-zero-a-nuvem
+2. Instale as dependências do projeto:
+    npm install
+3. Abra o Cypress:
+    npx cypress open
+4. Execute os testes conforme necessário.
+5. Para executar os testes em modo headless com configuração mobile, digite o seguinte no terminal:
+    npm run cy:test:mobile:headless
+6. Para executar os testes em modo interativo com configuração mobile, digite o seguinte no terminal:
+    npm run cy:test:mobile
 
-## O que você vai aprender?
+## Arquivos
+- cypress/
+  - e2e/ - Contém os arquivos de teste.(end to end)
+  - fixtures/ - Contém os dados de teste.
+  - support/ - Contém comandos personalizados e configurações do Cypress.(comandos)
+- package.json - Arquivo de configuração do npm.
+- README.md - Este arquivo de documentação.
 
-- Como configurar um projeto Cypress do zero
-- Como visitar páginas locais e remotas
-- Como lidar com os elementos mais comuns encontrados em aplicações web
-- Como testar upload de arquivos
-- Como realizar as mais diversas verificações de resultados esperados
-- Como criar comandos customizados
-- Como lidar com links que abrem em outra aba do navegador
-- Como rodar testes simulando as dimensões de um dispositivo móvel
-- Como resolver os mesmos problemas de diferentes formas, conhecendo a [API do Cypress](https://docs.cypress.io/api/table-of-contents)
-- Como criar uma documentação mínima para seu projeto de testes automatizados
-- Como executar os testes em um _workflow_ de integração contínua sempre que mudanças ocorrerem no código da aplicação (ou dos testes)
-- Como integrar seu _workflow_ de integração contínua com o Cypress Cloud (o serviço de gestão de testes do Cypress na nuvem)
-
-## Vamos começar?
-
-Vá para a seção [estrutura do curso](./lessons/_course-structure_.md).
-
-___
-
-Este é um curso da **Escola Talking About Testing**.
