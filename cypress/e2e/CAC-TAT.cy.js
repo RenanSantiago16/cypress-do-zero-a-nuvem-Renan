@@ -17,7 +17,7 @@ describe('template spec', () => {
     cy.get('#open-text-area').type('Testando testando 12', { delay: 100 }).should('have.value', 'Testando testando 12')
 
     cy.get('.button').click()
-
+    
     cy.get('.success').should('be.visible')
   })
 
