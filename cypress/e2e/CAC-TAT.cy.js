@@ -190,7 +190,7 @@ describe('template spec', () => {
       
     })
 
-    it.only('acessa a página da política de privacidade removendo o target e então clicando no link', () => {
+    it('acessa a página da política de privacidade removendo o target e então clicando no link', () => {
       cy.get('a').invoke('removeAttr','target').click()
       cy.contains('Política de Privacidade').should('be.visible')
     })
