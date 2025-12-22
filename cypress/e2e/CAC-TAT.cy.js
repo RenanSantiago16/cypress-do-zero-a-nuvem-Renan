@@ -113,13 +113,25 @@ describe('template spec', () => {
     cy.get('.success').should('be.visible')
   })
 
-  it('checa com um comando personalizado', () => {
+  it('exibe mensagem por 3 segundos', function() {
+  cy.clock() // congela o relógio do navegador
+  cy.comandos()
+  cy.contains('button', 'Enviar').click()
+  cy.get('.success').should('be.visible')
+  cy.tick(3000) 
+  cy.get('.success').should('not.be.visible')  
+})
 
+
+  it('checa com um comando personalizado', () => {
+    Cypress._.times(3, () => {
+    
     cy.comandos()
   
-    cy.contains('button', 'Enviar').click()
+     cy.contains('button', 'Enviar').click()
 
-    cy.get('.success').should('be.visible')
+     cy.get('.success').should('be.visible')
+    })
   })
 
   it('seleciona um produto youtube por seu texto', () => {
@@ -195,7 +207,40 @@ describe('template spec', () => {
       cy.contains('Política de Privacidade').should('be.visible')
     })
 
+    it('mostra e esconde as mensagens de erro e sucesso', () => {
+      cy.get('.success')
+        .should('not.be.visible')
+        .invoke('show')
+        .should('be.visible')
+        .and('contain', 'Mensagem enviada com sucesso.')
+        .invoke('hide')
+        .should('not.be.visible')
+      cy.get('.error')
+        .should('not.be.visible')
+        .invoke('show')
+        .should('be.visible')
+        .and('contain', 'Valide os campos obrigatórios!')
+        .invoke('hide')
+        .should('not.be.visible')
+      })
     
+    it('preenche o campo da área de texto usando o comando invoke', () => {
+      cy.get('#open-text-area').invoke('val', 'um texto qualquer')
+      cy.get('#open-text-area').should('have.value','um texto qualquer')
+    })
+
+    it('faz uma requisição HTTP', () => {
+      cy.request('GET', 'https://cac-tat-v3.s3.eu-central-1.amazonaws.com/index.html')
+      .should((response) => {
+        expect(response.status).to.equal(200)
+        expect(response.statusText).to.equal('OK')
+        expect(response.body).to.include('CAC TAT')
+      })
+    })
+
+    it('acha o gato', () => {
+      cy.get('#cat').invoke('show').should('be.visible')
+    })
    /*
   it('verifica que a politica de privacidade abre em outra aba sem a necessidade de um clique'), () => {
     
