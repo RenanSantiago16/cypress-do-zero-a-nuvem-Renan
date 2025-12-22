@@ -13,3 +13,5 @@ jobs:
           parallel: true
           group: 'CI/CD Pipeline'
           command: npm run test:cloud
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
